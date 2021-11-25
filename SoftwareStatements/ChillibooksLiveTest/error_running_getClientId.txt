@@ -1,0 +1,29 @@
+ssl.SSLError: [SSL] PEM lib (_ssl.c:4044)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python39\lib\site-packages\requests\adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "C:\Python39\lib\site-packages\urllib3\connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "C:\Python39\lib\site-packages\urllib3\util\retry.py", line 574, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='ob19-rs1.o3bank.co.uk', port=4501): Max retries exceeded with url: /dynamic-client-registration/v3.1/register (Caused by SSLError(SSLError(9, '[SSL] PEM lib (_ssl.c:4044)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Projects\OpenBanking\Ozone\getclientId.py", line 6, in <module>
+    response = requests.post("https://ob19-rs1.o3bank.co.uk:4501/dynamic-client-registration/v3.1/register",
+  File "C:\Python39\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Python39\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Python39\lib\site-packages\requests\sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Python39\lib\site-packages\requests\sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Python39\lib\site-packages\requests\adapters.py", line 514, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='ob19-rs1.o3bank.co.uk', port=4501): Max retries exceeded with url: /dynamic-client-registration/v3.1/register (Caused by SSLError(SSLError(9, '[SSL] PEM lib (_ssl.c:4044)')))
